@@ -1,0 +1,23 @@
+version: '3'
+
+services:
+  postgres_db:
+    image: postgres:13.9
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    expose:
+      - 5432
+    volumes:
+      - /var/lib/postgresql/data
+  rails_api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    entrypoint: ./docker-entrypoint.sh
+    command: bundle exec rails server -b 0.0.0.0
+    ports:
+      - 3000:3000/tcp
+    depends_on:
+      - postgres_db

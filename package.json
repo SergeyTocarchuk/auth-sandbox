@@ -1,0 +1,22 @@
+{
+  "name": "auth-sandbox",
+  "version": "1.0.0",
+  "repository": "",
+  "scripts": {
+    "up": "docker-compose up",
+    "stop": "docker-compose stop",
+    "down": "docker-compose down",
+    "build": "docker-compose up --build",
+
+    "docker:status": "docker-compose ps",
+    "docker:exec": "docker-compose exec rails_api",
+
+    "bash": "docker-compose exec rails_api bash",
+    "c": "docker-compose exec rails_api rails c",
+    "routes": "docker-compose exec rails_api rails routes",
+    "db:seed": "docker-compose exec rails_api rails db:seed",
+    "db:reset": "docker-compose exec rails_api rails db:reset",
+    "db:migrate": "docker-compose exec rails_api rails db:migrate",
+    "db:rollback": "docker-compose exec rails_api rails db:rollback"
+  }
+}
