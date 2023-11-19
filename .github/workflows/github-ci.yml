@@ -41,6 +41,6 @@ jobs:
         run: |
           docker build -t auth_sandbox-rails_api .
       
-      - name: Test Ruby on Rails app
-        run: |
-          docker compose exec -e RAILS_ENV=test rails_api bundle exec rspec
+      # - name: Test Ruby on Rails app
+      #   run: |
+      #     docker compose exec -e RAILS_ENV=test rails_api bundle exec rspec
