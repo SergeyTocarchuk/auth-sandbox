@@ -17,6 +17,8 @@
     "db:seed": "docker-compose exec rails_api rails db:seed",
     "db:reset": "docker-compose exec rails_api rails db:reset",
     "db:migrate": "docker-compose exec rails_api rails db:migrate",
-    "db:rollback": "docker-compose exec rails_api rails db:rollback"
+    "db:rollback": "docker-compose exec rails_api rails db:rollback",
+
+    "rubocop": "docker-compose exec rails_api rubocop"
   }
 }
