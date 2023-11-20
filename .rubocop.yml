@@ -1,0 +1,217 @@
+---
+inherit_from: .rubocop_todo.yml
+
+inherit_gem:
+  test-prof: config/rubocop-rspec.yml
+
+AllCops:
+  NewCops: enable
+  Exclude:
+    - 'bin/*'
+    - 'db/schema.rb'
+    - 'public/**/*'
+    - 'test/**/*'
+    - 'vendor/**/*'
+    - 'spec/fixtures/**/*'
+    - 'tmp/**/*'
+    - 'node_modules/**/*'
+
+require:
+  - rubocop-rails
+  - rubocop-rspec
+  - rubocop-performance
+  - test_prof/rubocop
+
+Style/GlobalVars:
+  AllowedVariables:
+    - $redis
+
+Style/DisableCopsWithinSourceCodeDirective:
+  Enabled: true
+
+# Style/Documentation:
+#   Enabled: false
+
+Style/ExponentialNotation:
+  Enabled: true
+
+Style/HashEachMethods:
+  Enabled: true
+  AllowedReceivers:
+    - AppSetting
+
+Style/HashTransformKeys:
+  Enabled: true
+
+Style/HashTransformValues:
+  Enabled: true
+
+Layout/ClassStructure:
+  Enabled: true
+  Categories:
+    module_inclusion:
+    extensions:
+      - include
+      - prepend
+      - extend
+      - has_secure_token
+    attributes:
+      - attribute
+      - attr_reader
+      - attr_writer
+      - attr_accessor
+      - enum
+    relationships:
+      - belongs_to
+      - has_one
+      - has_many
+      - has_and_belongs_to_many
+      - accepts_nested_attributes_for
+    validations:
+      - validates
+      - validate
+    scopes:
+      - default_scope
+      - scope
+    callbacks:
+      - after_initialize
+      - after_find
+      - after_touch
+      - before_validation
+      - after_validation
+      - before_save
+      - around_save
+      - after_save
+      - before_create
+      - around_create
+      - after_create
+      - before_update
+      - around_update
+      - after_update
+      - before_destroy
+      - around_destroy
+      - after_destroy
+      - after_commit
+      - after_rollback
+  ExpectedOrder:
+    - extensions
+    - constants
+    - attributes
+    - relationships
+    - validations
+    - scopes
+    - callbacks
+    - public_class_methods
+    - public_delegate
+    - initializer
+    - public_methods
+    - protected_attributes
+    - protected_methods
+    - private_attributes
+    - private_delegate
+    - private_methods
+  Include:
+    - app/models/*.rb
+
+Layout/EmptyLinesAroundModuleBody:
+  EnforcedStyle: empty_lines
+
+Layout/EmptyLinesAroundClassBody:
+  EnforcedStyle: empty_lines
+
+Lint/MissingSuper:
+  Exclude:
+    - 'app/services/**/*'
+    - 'app/auth/**/*'
+
+Lint/RaiseException:
+  Enabled: true
+
+Layout/SpaceAroundMethodCallOperator:
+  Enabled: true
+
+Lint/StructNewOverride:
+  Enabled: true
+
+Metrics/BlockLength:
+  Exclude:
+    - 'lib/tasks/*'
+    - 'config/environments/**.rb'
+    - 'config/routes.rb'
+    - 'app/admin/**/*.rb'
+
+Metrics/ClassLength:
+  Max: 250
+
+Metrics/ModuleLength:
+  Max: 250
+
+Metrics/AbcSize:
+  Max: 25
+  Exclude:
+    - 'db/migrate/*.active_storage.rb'
+
+Metrics/MethodLength:
+  Max: 20
+  Exclude:
+    - 'db/migrate/*.active_storage.rb'
+
+Metrics/CyclomaticComplexity:
+  Max: 7
+
+Naming/PredicateName:
+  Enabled: true
+  AllowedMethods:
+    - has_many_if_loaded
+
+Rails/RedundantActiveRecordAllMethod:
+  Exclude:
+    - 'config/routes.rb'
+
+Rails/Output:
+  Exclude:
+    - 'db/seeds.rb'
+    - 'db/seeds/*.rb'
+
+Rails/UnknownEnv:
+  Environments:
+    - production
+    - development
+    - test
+    - staging
+
+RSpec:
+  Language:
+    ExampleGroups:
+      Regular:
+        - path
+        - post
+        - put
+        - get
+        - delete
+    Examples:
+      Regular:
+        - response
+        - aggregate_failures
+    Expectations:
+      - run_test!
+
+RSpec/AlignLeftLetBrace:
+  Enabled: true
+
+RSpec/ExampleLength:
+  Max: 50
+
+RSpec/MultipleExpectations:
+  Max: 10
+
+RSpec/MultipleMemoizedHelpers:
+  Max: 10
+
+RSpec/NestedGroups:
+  Max: 5
+
+RSpec/VariableName:
+  EnforcedStyle: snake_case
+  AllowedPatterns:
+    - ^Authorization
