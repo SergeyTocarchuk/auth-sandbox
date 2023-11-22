@@ -1,0 +1,23 @@
+# ignore all markdown files
+*.md
+
+# ignore dir with bash scripts
+script
+
+# ignore all env examples
+*example*
+
+# ignore all git files and dirs
+.git*
+gitleaks.toml
+
+# ignore all docker files
+Dockerfile*
+docker-compose.yml  
+.dockerignore
+
+# ignore package.json and other
+*.json
+
+# ignore oter unimportant files
+pack

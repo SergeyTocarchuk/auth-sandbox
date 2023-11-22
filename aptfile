@@ -1,0 +1,11 @@
+build-essential 
+vim 
+libpq-dev 
+libxml2-dev 
+libxslt1-dev 
+imagemagick 
+apt-transport-https 
+postgresql-client 
+libxrender1 
+git
+shared-mime-info
