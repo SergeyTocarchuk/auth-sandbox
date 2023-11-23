@@ -1,23 +1,10 @@
-# FROM ruby:3.2.2
-
-# WORKDIR /app
-
-# COPY Gemfile Gemfile.lock ./
-
-# RUN gem install bundler && bundle install --jobs 20 --retry 5 --no-cache
-
-# COPY . .
-
-# CMD ["rails", "server", "-b", "0.0.0.0"]
-
-
 # Layer 0. Define default env variables
 ARG DEFAULT_APP_HOME="/home/ruby/rails-app"
 ARG DEFAULT_GEM_HOME="/usr/local/bundle"
 ARG PATH=$GEM_HOME/bin:$GEM_HOME/gems/bin:$PATH
 
 # Layer 1. Download base ruby image.
-FROM ruby:3.2.2 as builder
+FROM ruby:3.0.6-slim as builder
 
 # Later 2. Set maintainer
 # LABEL multi.maintainer="Codica" \
@@ -50,10 +37,10 @@ WORKDIR $APP_HOME
 COPY Gemfile Gemfile.lock ./
 
 # Layer 9. Installing dependencies.
-RUN bundle check || bundle install --without development test --jobs 20 --retry 5
+RUN bundle check || bundle install --jobs 20 --retry 5
 
 # Layer 10. Use multistage.
-FROM ruby:3.2.2 as runner
+FROM ruby:3.0.6-slim as runner
 
 # Layer 11. Install runtime dependecies.
 # hadolint ignore=DL3008

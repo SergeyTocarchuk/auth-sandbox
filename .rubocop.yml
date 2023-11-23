@@ -29,8 +29,8 @@ Style/GlobalVars:
 Style/DisableCopsWithinSourceCodeDirective:
   Enabled: true
 
-# Style/Documentation:
-#   Enabled: false
+Style/Documentation:
+  Enabled: false
 
 Style/ExponentialNotation:
   Enabled: true

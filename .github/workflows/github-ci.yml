@@ -35,12 +35,12 @@ jobs:
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: 3.2.2
+          ruby-version: 3.3
 
       - name: Build Docker container
         run: |
           docker build -t auth_sandbox-rails_api .
       
-      # - name: Run linters
-      #   run: |
-      #     docker-compose exec rails_api rubocop
+      - name: Run linters
+        run: |
+          docker-compose exec rails_api rubocop
