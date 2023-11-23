@@ -43,4 +43,4 @@ jobs:
       
       - name: Run linters
         run: |
-          docker-compose exec rails_api rubocop
+          docker-compose exec auth_sandbox-rails_api rubocop
